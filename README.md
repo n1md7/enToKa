@@ -11,4 +11,7 @@ Add checkbox witch class='<code>switcher</code>'</i>
 	&lt;input type="checkbox" class="switcher"&gt;
 </code>
 
+<hr>
 
+<b>Live Preview: </b><br>
+	<a href="https://bichiko.github.io/enToKa/">enToKa</a>
