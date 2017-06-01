@@ -6,9 +6,11 @@
 Add checkbox witch class='<code>switcher</code>'</i>
 <hr>
 <h3>Demo</h3>
-<xmp>
- 	<input class="toKa">
-	<input type="checkbox" class="switcher">
-</xmp>
+<pre>
+	<code>
+     	&lt;input class="toKa"&gt;
+		&lt;input type="checkbox" class="switcher"&gt;
+	</code>
+</pre>
 
 
