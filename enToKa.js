@@ -5,20 +5,21 @@ String.prototype.toKa = function(){
 	})
 	return text
 }
+window.addEventListener('load', function(){
+	document.querySelectorAll('.toKa').forEach(function(element){
+		element.addEventListener('keypress', function(e){
+			if(document.querySelector('.checker').checked){
+				this.value +=String.fromCharCode(e.keyCode).toKa()
+				e.preventDefault()
+			}
+		})
+	})
 
-document.querySelectorAll('.toKa').forEach(function(element){
-	element.onkeypress=function(e){
-		if(document.querySelector('.checker').checked){
-			this.value +=String.fromCharCode(e.keyCode).toKa()
-			return false
+	document.addEventListener('keypress', function(e){
+		var trgt = document.querySelector('.checker')
+		if(e.keyCode == 96){
+			trgt.checked = trgt.checked == true ? false : true
+			e.preventDefault()
 		}
-	}
+	})
 })
-
-document.onkeypress = function(e){
-	var trgt = document.querySelector('.checker')
-	if(e.keyCode == 96){
-		trgt.checked = trgt.checked == true ? false : true
-		return false
-	}
-}
