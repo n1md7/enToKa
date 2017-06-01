@@ -8,10 +8,7 @@ String.prototype.toKa = function(){
 window.addEventListener('load', function(){
 	document.querySelectorAll('.toKa').forEach(function(element){
 		element.addEventListener('keypress', function(e){
-			if(document.querySelector('.switcher') == null){
-				this.value +=String.fromCharCode(e.keyCode).toKa()
-				e.preventDefault()
-			}else if(document.querySelector('.switcher').checked){
+			if(document.querySelector('.switcher') == null || document.querySelector('.switcher').checked){
 				this.value +=String.fromCharCode(e.keyCode).toKa()
 				e.preventDefault()
 			}
