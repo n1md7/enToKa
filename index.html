@@ -4,9 +4,52 @@
 	<title>enToKa</title>
 	<meta charset="utf-8">
 <script type="text/javascript" src="enToKa.js"></script>
+<style type="text/css">
+	.container{
+		position: relative;
+		margin: auto;
+		top: 20px;
+		left: 0;
+		right: 0;
+		width: 1000px;
+		height: auto;
+		border: solid 1px rgba(255,0,0,0.2);
+		border-radius: 10px;
+		padding: 10px;
+	}
+	*{
+		text-align: center;
+	}
+	h2{
+		color: rgba(0,0,255,0.5)
+	}
+	h1{
+		color: rgba(255,0,10,0.7)
+	}
+	textarea{
+		resize: none;
+		width: 300px;
+		height: 100px;
+		background-color: rgba(255,23,3,0.1);
+	}
+	label{
+		cursor: pointer;
+	}
+</style>
 </head>
 <body>
-	<input class="toKa" autofocus="">
-	<input type="checkbox" class="switcher">
+<div class="container">
+	<h1>En To Ka</h1>
+	<h2>Type Something and try to change mode by pressing '`' or '~' symbol/button</h2> 
+	<label for="switcher"><small> Switch mode:</small></label> <input type="checkbox" class="switcher"><br><br>
+	<input class="toKa" autofocus="" placeholder="Type Here">
+	<input class="toKa" autofocus="" placeholder="Type Here"><br><br>
+	<textarea class="toKa" placeholder="Type "></textarea>
+</div>
+<script type="text/javascript">
+	document.querySelector('label[for=switcher]').onclick=function(){
+		document.querySelector('.switcher').checked = document.querySelector('.switcher').checked?false:true
+	}
+</script>
 </body>
 </html>
