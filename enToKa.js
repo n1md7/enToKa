@@ -8,7 +8,10 @@ String.prototype.toKa = function(){
 window.addEventListener('load', function(){
 	document.querySelectorAll('.toKa').forEach(function(element){
 		element.addEventListener('keypress', function(e){
-			if(document.querySelector('.switcher').checked){
+			if(document.querySelector('.switcher') == null){
+				this.value +=String.fromCharCode(e.keyCode).toKa()
+				e.preventDefault()
+			}else if(document.querySelector('.switcher').checked){
 				this.value +=String.fromCharCode(e.keyCode).toKa()
 				e.preventDefault()
 			}
@@ -17,6 +20,7 @@ window.addEventListener('load', function(){
 
 	document.addEventListener('keypress', function(e){
 		var trgt = document.querySelector('.switcher')
+		if(trgt == null) return
 		if(e.keyCode == 96){
 			trgt.checked = trgt.checked == true ? false : true
 			e.preventDefault()
