@@ -16,6 +16,8 @@
 		border: solid 1px rgba(255,0,0,0.2);
 		border-radius: 10px;
 		padding: 10px;
+		margin-bottom: 120px;
+		padding-bottom: 20px;
 	}
 	*{
 		text-align: center;
@@ -27,28 +29,125 @@
 		color: rgba(255,0,10,0.7)
 	}
 	textarea{
-		resize: none;
-		width: 300px;
-		height: 100px;
-		background-color: rgba(255,23,3,0.1);
+		resize: vertical;
+		width: 100%;
+		text-align: left;
+		height: 150px;
+		background-color: rgba(255,23,3,0.01);
+		box-sizing: border-box;
+		border: solid 1px rgba(255,0,0,0.2);
+		padding: 10px;
+		outline: none;
+	}
+	textarea:focus{
+		border: solid 1px rgba(255,0,0,0.5);
+		border-radius: 2px;
 	}
 	label{
 		cursor: pointer;
+	}
+	h3{
+		color: rgba(255,155,0,0.7);
+	}
+	#convert{
+		width: 200px;
+		height: 60px;
+		background-color: rgba(255,20,10,0.7);
+		border: solid 1px rgba(100,100,33,0.9);
+		border-radius: 5px;
+		cursor: pointer;
+		width: 100%;
+		font-weight: bold;
+		font-size: 29px;
+		color: rgba(25,0,20,0.4);
+		margin: 10px 0 10px 0;
+		transition: all 0.5s;
+	}
+	#convert:hover{
+		background-color: rgba(255,50,20,0.7);
+		border: solid 1px rgba(120,120,33,0.7);
+		color: rgba(10,10,10,0.8);
+	}
+	hr{
+		border-color: rgba(255,0,0,0.2);
+		border: solid 1px rgba(255,0,0,0.2);
+	}
+	.example{
+		background-color: rgba(255,0,0,0.05);
+		width: 80%;
+		height: 300px;
+		margin: auto;
+		border-radius: 5px;
+		box-sizing: border-box;
+		padding: 20px;
+	}
+	em{
+		display: inline-block;
+		padding: 0 5px 0 5px;
+		border-radius: 3px;
+		color: rgba(255,0,0,0.7);
+		background-color: rgba(0,0,0,0.1);
+	}
+	input[type=link]{
+		width: 100%;
+		padding: 20px;
+		font-size: 17px;
+		box-sizing: border-box;
+		outline: none;
+		border: solid 1px rgba(255,0,0,0.2);
+	}
+	input[type=link]:focus{
+		border: solid 1px rgba(255,0,0,0.5);
+	}
+	::selection {
+	  background: rgba(255,0,0,0.5); /* WebKit/Blink Browsers */
+	}
+	::-moz-selection {
+	  background: rgba(255,0,0,0.5); /* Gecko Browsers */
 	}
 </style>
 </head>
 <body>
 <div class="container">
-	<h1>En To Ka</h1>
+	<h1>EnToKa</h1>
+	<h3>English->Georgian</h3>
 	<h2>Type Something and try to change mode by pressing '`' or '~' symbol/button</h2> 
-	<label for="switcher"><small> Switch mode:</small></label> <input type="checkbox" class="switcher"><br><br>
+	<label for="switcher"><small> Switch mode:</small></label><input type="checkbox" class="switcher"><br><br>
 	<input class="toKa" autofocus="" placeholder="Type Here">
 	<input class="toKa" autofocus="" placeholder="Type Here"><br><br>
-	<textarea class="toKa" placeholder="Type "></textarea>
+
+	<div class="example">
+		<p>You need to include <em>link</em> to your document</p>
+		<input onclick="this.select()" type="link" value='<script type="text/javascript" src="https://bichiko.github.io/enToKa/enToKa.js"/></script>'>
+		<p>and then add <em>class="toKa"</em> to any text Box
+		like <em>&lt;input class="toKa"&gt;</em></p>
+		<p><u>Optional</u>: add switcher button by adding <em>&lt;input type="checkbox" class="switcher"&gt;</em> 
+		and pressing <em>~</em> or <em>`</em> symbol you can toogle change keyboard</p>
+	</div>
+
+	<div class="converter">
+		<h1>Converter EN to UTF-8</h1>
+		<textarea placeholder="Paste text here like ... ABC ..." class="textIn"></textarea>
+		<button id="convert">Convert</button>
+		<textarea placeholder="Output ... აბც ..." class="textOut" onclick="this.select()"></textarea>
+	</div>
+
 </div>
+
+
+
 <script type="text/javascript">
-	document.querySelector('label[for=switcher]').onclick=function(){
-		document.querySelector('.switcher').checked = document.querySelector('.switcher').checked?false:true
+var _=function(c){
+	return document.querySelector(c)
+}
+	_('label[for=switcher]').onclick=function(){
+		_('.switcher').checked = _('.switcher').checked?false:true
+	}
+	_('#convert').onclick = function(){
+		if(_('.textIn').value.length==0)
+			alert('Textarea is empty')
+		else
+			_('.textOut').value=_('.textIn').value.toKa()
 	}
 </script>
 </body>
