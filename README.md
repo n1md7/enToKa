@@ -14,4 +14,4 @@ Add checkbox witch class='<code>switcher</code>'</i>
 <hr>
 
 <b>Live Preview: </b><br>
-	<a href="https://bichiko.github.io/enToKa/">enToKa</a>
+	<a target="_blank" href="https://bichiko.github.io/enToKa/">enToKa</a>
