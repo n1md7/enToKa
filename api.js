@@ -67,7 +67,7 @@ function init(argument) {
 	if(iframe == null) return
 
 	find(iframe).css({
-		'border':'solid 3px rgba(255,20,10,0.7)',
+		'border':'solid 3px rgba(30,30,30,0.9)',
 		'height':'auto',
 		'box-sizing':'border-box',
 		'margin':'auto',
@@ -77,11 +77,11 @@ function init(argument) {
 	var header = find(iframe).create('h3').css({
 		'height':'auto',
 		'margin-top':'auto',
-		'background-color':'rgba(255,20,10,0.7);',
+		'background-color':'rgba(30,30,30,0.9);',
 		'text-align':'center',
-		'color':'black',
+		'color':'white',
 		'border':'solid 0px'
-	}).html("<a style=\'text-decoration:none;color:rgba(100,0,0,0.7);\' target=\'_blank\' href=\'https://bichiko.github.io/enToKa/\'>Converter {<small>En2Ka</small>}</a>")
+	}).html("<a style=\'text-decoration:none;color:white;\' target=\'_blank\' href=\'https://bichiko.github.io/enToKa/\'>Converter {<small>En2Ka</small>}</a>")
 
 	var txtIn = find(iframe).create('textarea').css({
 		'resize': 'vertical',
@@ -102,23 +102,23 @@ function init(argument) {
 	var convert = find(iframe).create('button').html('Convert').css({
 		'width': '200px',
 		'height': '30px',
-		'background-color': 'rgba(255,20,10,0.7)',
+		'background-color': 'rgba(30,30,30,0.9)',
 		'border': 'solid 1px rgba(100,100,33,0.9)',
 		'cursor': 'pointer',
 		'width': '100%',
 		'font-weight': 'bold',
 		'margin-top':'-4px',
 		'font-size': '21px',
-		'color': 'rgba(25,0,20,0.4)',
+		'color': 'white',
 		'transition': 'all 0.5s'
 	}).on('mouseover', function(){
-		this.style.backgroundColor = 'rgba(255,50,20,0.7)'
+		this.style.backgroundColor = 'rgba(10,10,10,0.9)'
 		this.style.border = 'solid 1px rgba(100,100,33,0.9)'
-		this.style.color = 'rgba(25,0,20,0.4)'
+		this.style.color = 'rgba(200,200,200,1)'
 	}).on('mouseout', function(){
-		this.style.backgroundColor = 'rgba(255,20,10,0.7)'
+		this.style.backgroundColor = 'rgba(30,30,30,0.9)'
 		this.style.border = 'solid 1px rgba(120,120,33,0.7)'
-		this.style.color = 'rgba(10,10,10,0.8)'
+		this.style.color = 'white'
 	}).on('click', function(){
 		var that = this
 		find(this).attr('disabled', '').html('Loading...')
@@ -143,8 +143,7 @@ function init(argument) {
 				'border':'solid 0px',
 				'padding': '10px',
 				'outline': 'none',
-				'margin':'0',
-				'background-color': 'rgba(250,20,20,0.1)'
+				'margin':'0'
 			}).attr('placeholder','Output').attr('class', 'entokaOuttxt')
 			.on('click', function(){
 				this.select()
