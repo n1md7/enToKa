@@ -7,7 +7,7 @@ String.prototype.toKa = function(){
 }
 window.addEventListener('load', function(){
 	document.querySelectorAll('.toKa').forEach(function(element){
-		element.addEventListener('keydown', function(e){
+		element.addEventListener('keypress', function(e){
 			if(document.querySelector('.switcher') == null || document.querySelector('.switcher').checked){
 				if (this.selectionStart != undefined) {
 		            var startPos = this.selectionStart
@@ -28,7 +28,7 @@ window.addEventListener('load', function(){
 		})
 	})
 
-	document.addEventListener('keydown', function(e){
+	document.addEventListener('keypress', function(e){
 		var trgt = document.querySelector('.switcher')
 		if(trgt == null) return
 		if(e.keyCode == 96){
