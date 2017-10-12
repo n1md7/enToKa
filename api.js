@@ -1,4 +1,4 @@
-// (function(window, document){
+(function(window, document){
 	String.prototype.toKa = function(){
 		var text = '', target = this.split(''), chars = 'abgdevzTiklmnopJrstufqRySCcZwWxjh'
 		target.map(function(element, index){
@@ -7,7 +7,6 @@
 		return text
 	}
 
-	// function Element(parent) {
 	function Element(parent) {
 	    parent = (typeof parent === 'object') ? parent : document.querySelector(parent)
 	    this.element = parent
@@ -58,15 +57,12 @@
 	    }
 	}
 
-	/*window.find = function(val) {
+	window.find = function(val) {
 	    return new Element(val)
-	}*/
+	}
 
-// })(window, document)
+})(window, document)
 
-function find(val){
-    return new Element(val)
-}
 
 
 
