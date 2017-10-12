@@ -8,7 +8,7 @@
 	}
 
 	// function Element(parent) {
-	function find(parent) {
+	function Element(parent) {
 	    parent = (typeof parent === 'object') ? parent : document.querySelector(parent)
 	    this.element = parent
 	    var style = this.element.getAttribute('style') || ''
@@ -64,6 +64,9 @@
 
 // })(window, document)
 
+function find(val){
+    return new Element(val)
+}
 
 
 
