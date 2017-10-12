@@ -57,7 +57,7 @@
 	    }
 	}
 
-	window.find = function(val) {
+	window._find = function(val) {
 	    return new Element(val)
 	}
 
@@ -70,7 +70,7 @@ function converterEn2Ka(argument) {
 	var iframe = document.querySelector('.converterEn2Ka')
 	if(iframe == null) return
 
-	find(iframe).css({
+	_find(iframe).css({
 		'border':'solid 3px rgba(30,30,30,0.9)',
 		'height':'auto',
 		'box-sizing':'border-box',
@@ -78,7 +78,7 @@ function converterEn2Ka(argument) {
 		'text-align':'center'
 	})
 
-	var header = find(iframe).create('h3').css({
+	var header = _find(iframe).create('h3').css({
 		'height':'auto',
 		'margin-top':'auto',
 		'background-color':'rgba(30,30,30,0.9);',
@@ -87,7 +87,7 @@ function converterEn2Ka(argument) {
 		'border':'solid 0px'
 	}).html("<a style=\'text-decoration:none;color:white;\' target=\'_blank\' href=\'https://bichiko.github.io/enToKa/\'>Converter {<small>En2Ka</small>}</a>")
 
-	var txtIn = find(iframe).create('textarea').css({
+	var txtIn = _find(iframe).create('textarea').css({
 		'resize': 'vertical',
 		'width': '100%',
 		'text-align': 'left',
@@ -103,7 +103,7 @@ function converterEn2Ka(argument) {
 		'background-color': 'rgba(250,250,250,0.7)'
 	}).attr('placeholder','Type text here...').element
 
-	var convert = find(iframe).create('button').html('Convert').css({
+	var convert = _find(iframe).create('button').html('Convert').css({
 		'width': '200px',
 		'height': '30px',
 		'background-color': 'rgba(30,30,30,0.9)',
@@ -125,17 +125,17 @@ function converterEn2Ka(argument) {
 		this.style.color = 'white'
 	}).on('click', function(){
 		var that = this
-		find(this).attr('disabled', '').html('Loading...')
+		_find(this).attr('disabled', '').html('Loading...')
 		setTimeout(function(){
 			convertIt()
-			find(that).rmAttr('disabled').html('Convert')
+			_find(that).rmAttr('disabled').html('Convert')
 		},1000)
 	})
 
 	function convertIt(){
 		var txtOut = document.querySelector('.entokaOuttxt')
 		if(txtOut == null){
-			txtOut = find(iframe).create('textarea').css({
+			txtOut = _find(iframe).create('textarea').css({
 				'resize': 'vertical',
 				'width': '100%',
 				'text-align': 'left',
