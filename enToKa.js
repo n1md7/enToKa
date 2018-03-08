@@ -9,12 +9,7 @@ String.prototype.toKa = function(e){
 					text += 'ჸ'
 				}
 			}else{
-				if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
-					if(!e.altKey || !e.ctrlKey || !e.metaKey)
-						text += element
-				}else{
-					text += element
-				}
+				text += element
 			}
 		}
 	})
@@ -25,7 +20,6 @@ window.addEventListener('load', function(){
 		element.addEventListener('keypress', function(evt){
 			if(document.querySelector('.switcher') == null || document.querySelector('.switcher').checked){
 				var charCode = (evt.charCode) ? evt.which : evt.keyCode
-				// alert(charCode)
 				if (this.selectionStart != undefined) {
 		            var startPos = this.selectionStart
     				var endPos = this.selectionEnd
