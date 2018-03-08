@@ -24,7 +24,7 @@ window.addEventListener('load', function(){
 	document.querySelectorAll('.toKa').forEach(function(element){
 		element.addEventListener('keypress', function(evt){
 			if(document.querySelector('.switcher') == null || document.querySelector('.switcher').checked){
-				var charCode = (evt.charCode) ? evt.which : event.keyCode
+				var charCode = (evt.charCode) ? evt.which : evt.keyCode
 				if (this.selectionStart != undefined) {
 		            var startPos = this.selectionStart
     				var endPos = this.selectionEnd
@@ -47,7 +47,7 @@ window.addEventListener('load', function(){
 
 	document.addEventListener('keypress', function(evt){
 		var trgt = document.querySelector('.switcher')
-		var charCode = (evt.charCode) ? evt.which : event.keyCode
+		var charCode = (evt.charCode) ? evt.which : evt.keyCode
 		if(trgt == null) return
 		if(charCode == 96){
 			trgt.checked = trgt.checked == true ? false : true
