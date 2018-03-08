@@ -36,7 +36,6 @@ window.addEventListener('load', function(){
 		            this.value = prefix + translated + endfix
 		            this.selectionStart = startPos + translated.length
 		            this.selectionEnd = startPos + translated.length
-					console.log(charCode, String.fromCharCode(charCode), String.fromCharCode(charCode).toKa())
 			    } else {
 					this.value += String.fromCharCode(charCode).toKa()
 			    } 
