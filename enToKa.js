@@ -1,20 +1,20 @@
-String.prototype.toKa = function(){
+String.prototype.toKa = function(e){
 	var text = '', target = this.split(''), chars = 'abgdevzTiklmnopJrstufqRySCcZwWxjhY'
 	target.map(function(element, index){
-		/*text += index >= 0 ? 
-			chars.indexOf(element) != -1 ? 
-				String.fromCharCode(chars.indexOf(element) + 4304):
-				element:
-			''*/
 		if(index >= 0){
-			if(chars.indexOf(element) != -1){
+			if(chars.indexOf(element) !== -1){
 				if(element != 'Y'){
 					text += String.fromCharCode(chars.indexOf(element) + 4304)
 				}else{
 					text += 'ჸ'
 				}
 			}else{
-				text += element
+				if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
+					if(!e.altKey || !e.ctrlKey || !e.metaKey)
+						text += element
+				}else{
+					text += element
+				}
 			}
 		}
 	})
@@ -25,6 +25,7 @@ window.addEventListener('load', function(){
 		element.addEventListener('keypress', function(evt){
 			if(document.querySelector('.switcher') == null || document.querySelector('.switcher').checked){
 				var charCode = (evt.charCode) ? evt.which : evt.keyCode
+				// alert(charCode)
 				if (this.selectionStart != undefined) {
 		            var startPos = this.selectionStart
     				var endPos = this.selectionEnd
@@ -39,6 +40,7 @@ window.addEventListener('load', function(){
 			    } else {
 					this.value += String.fromCharCode(charCode).toKa()
 			    } 
+			    evt.stopPropagation()
 				evt.preventDefault()
 			}
 		})
@@ -50,6 +52,7 @@ window.addEventListener('load', function(){
 		if(trgt == null) return
 		if(charCode == 96){
 			trgt.checked = trgt.checked == true ? false : true
+			evt.stopPropagation()
 			evt.preventDefault()
 		}
 	})
