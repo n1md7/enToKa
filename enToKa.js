@@ -25,7 +25,6 @@ window.addEventListener('load', function(){
 		element.addEventListener('keypress', function(evt){
 			if(document.querySelector('.switcher') == null || document.querySelector('.switcher').checked){
 				var charCode = (evt.charCode) ? evt.which : event.keyCode
-				console.log(charCode)
 				if (this.selectionStart != undefined) {
 		            var startPos = this.selectionStart
     				var endPos = this.selectionEnd
