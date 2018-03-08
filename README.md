@@ -19,5 +19,3 @@ Add checkbox witch class='<code>switcher</code>'</i>
 <b>Live Preview: </b><br>
 	<a target="_blank" href="https://bichiko.github.io/enToKa/">enToKa</a>
 
-
-Current version not working in Firefox :(
