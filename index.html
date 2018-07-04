@@ -13,7 +13,8 @@
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
 	<link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<script type="text/javascript" src="enToKa.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="https://bichiko.github.io/enToKa/enToKa2.js"></script>
 </head>
 <style type="text/css">
 	.back{
@@ -149,19 +150,30 @@
 		<a class="nostl" href="#converterapi"> ConverteR API</a>
 	</h1>
 	<h3>English<em>2</em>Georgian</h3>
-	<h2>Type Something and try to change mode by pressing '`' or '~' symbol/button</h2> 
-	<label for="switcher"><small> Switch mode:</small></label><input type="checkbox" class="switcher"><br><br>
-	<input class="toKa" autofocus="" placeholder="Type Here"><br><br>
-	<textarea class="toKa" style="width: 200px;height:40px;margin-bottom:20px;" placeholder="Type here"></textarea>
+	<h2>Demo</h2> 
+	<small><label for="switcher"> Switch mode:</label><input type="checkbox" id="switcher" style="position: relative;top:3px;" class="switcher"></small><br><br>
+	<input class="demo1" autofocus="" placeholder="Type Here"><br><br>
+	<textarea class="demo2" style="width: 200px;height:40px;margin-bottom:20px;" placeholder="Type here"></textarea>
 
+	<p><h3>Demo of instant translation by custom events</h3>
+	<input type="text" placeholder="Translate this text" id="demo3">
+	<input type="button" value="Click" id="dmcl">
+	<script>
+		$('#dmcl').click(x =>$('#demo3').toKa('placeholder'))
+	</script>
+	<br>
+	<p>You can use <code><em>$('#demo3').toKa('placeholder')</em></code> to approach this functionality or with vanilla js <code><em>document.getElementById('demo3').placeholder.toKa('placeholder')</em></code> which returns translated value</p>
+	</p>
 	<div class="example">
+		<p><h2><em>jQuery</em> plugin for Georgian Keyboard</h2></p>
+		<p><h3>Supported browsers: <em>Google Chrome</em>, <em>Mozilla Firefox</em>, <em>Internet Explorer</em>, <em>Opera</em>, <em>Microsoft Edge</em></h3></p>
 		<p><h3>Do you want to implement <em>ENGtoGEO</em> in your website?</h3></p>
 		<p>You need to include <em>link</em> in your document</p>
-		<input onclick="this.select()" type="link" value='<script type="text/javascript" src="https://bichiko.github.io/enToKa/enToKa.js"/></script>'>
-		<p>and then add <em>class="toKa"</em> to any text Box
-		like <em>&lt;input class="toKa"&gt;</em></p>
-		<p><u>Optional</u>: add switcher button by adding <em>&lt;input type="checkbox" class="switcher"&gt;</em> 
-		and pressing <em>~</em> or <em>`</em> symbol you can toogle change keyboard</p>
+		<input onclick="this.select()" type="link" value='<script type="text/javascript" src="https://bichiko.github.io/enToKa/enToKa2.js"/></script>'>
+		<p> and paste inside body <code><em>$('input').geoKbd('.switcher')</em></code></p>
+		<p> <code>$('.input')</code> is a Jquery selector and by binding <em>geoKbd</em> method it turns into georgian keyboard. And parameter for geoKbd is switcher checkbox className</p>
+		<p>In this example <code><em>$('input').geoKbd('.switcher')</em></code> we have to have at lease one <b>input</b> element and checkbox with classname .switcher</p>
+		<p>NB! don;t forget to include <em>Jquery</em> CDN link as well( before entoka API)</p>
 	</div>
 
 	<div class="converter">
@@ -199,11 +211,10 @@
 
 
 <script type="text/javascript">
+$('input.demo1, textarea.demo2').geoKbd('.switcher');
+
 var _= function(c){	return document.querySelector(c)}
 
-_('label[for=switcher]').onclick=function(){
-	_('.switcher').checked = _('.switcher').checked?false:true
-}
 _('#convert').onclick = function(){
 	if(_('.textIn').value.length==0)
 		alert('Textarea is empty')
